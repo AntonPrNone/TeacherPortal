@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-
 namespace TeacherPortal
 {
     public class Program
@@ -11,7 +10,13 @@ namespace TeacherPortal
             builder.RootComponents.Add<App>("#app");
             builder.RootComponents.Add<HeadOutlet>("head::after");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddScoped<Radzen.DialogService>();
+            builder.Services.AddScoped<Radzen.NotificationService>();
+            builder.Services.AddScoped<Radzen.ContextMenuService>();
+            builder.Services.AddScoped<Radzen.TooltipService>();
+            builder.Services.AddScoped<Radzen.ThemeService>(); // Добавляем службу ThemeService
+
+
 
             await builder.Build().RunAsync();
         }

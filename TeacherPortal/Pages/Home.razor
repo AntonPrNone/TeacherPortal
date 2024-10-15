@@ -1,7 +1,35 @@
-﻿@page "/"
+
+
+@page "/"
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Hello, world!!<br><br></h1>
 
 Welcome to your new app.
+
+<RadzenButton Click="@ButtonClicked" Text="Hi1" IsBusy="false" Visible="true" ButtonStyle="Radzen.ButtonStyle.Dark" Style="border: 0px none #ff0000; text-decoration: none" Disabled="false"></RadzenButton>
+<button style="border-radius: 5px; border: 0px outset #000000; background-color: #1a7d28; color: #ffffff; width: 71px; height: 38px">Button</button>
+<RadzenImage Style="width: 317px; height: 288px; color: #007fff; background-color: #000000; float: none; font-size: 20px; font-style: normal; text-transform: none" Path="icon-192.png" Visible="true"></RadzenImage>
+    <RadzenCard Variant="Variant.Outlined">
+        <RadzenIcon Icon="dashboard" IconStyle="IconStyle.Secondary" Style="background-color: #2eff9f; color: #de618b" />
+    </RadzenCard>
+
+<RadzenTabs>
+    <Tabs>
+        <RadzenTabsItem Text="Tab 1"></RadzenTabsItem>
+    </Tabs>
+</RadzenTabs>
+<RadzenSplitButton AlwaysOpenPopup="true" Style="width: 203px; height: 42px"></RadzenSplitButton>
+<RadzenTree Style="width: 113px; height: 36px">
+    <RadzenTreeItem Text="Item 1"></RadzenTreeItem>
+</RadzenTree>
+      <RadzenCard Variant="Variant.Flat" class="rz-background-color-base-200">
+        <RadzenIcon Icon="dashboard" IconStyle="IconStyle.Dark" />
+    </RadzenCard>
+@code {
+    void ButtonClicked()
+    {
+        // Логика при нажатии на кнопку
+    }
+}
