@@ -10,8 +10,17 @@
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
     <link href="TeacherPortal.styles.css" rel="stylesheet" />
-    <link href="_content/Radzen.Blazor/css/material-dark-base.css" rel="stylesheet" />
+    <link href="_content/Radzen.Blazor/css/standard-base.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
 
+    <script>
+        function scrollToSection(sectionId) {
+            var element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -24,7 +33,7 @@
     </div>
 
     <div id="blazor-error-ui">
-        An unhandled error has occurred.
+        Произошла необработанная ошибка.
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
@@ -33,3 +42,5 @@
 </body>
 
 </html>
+
+

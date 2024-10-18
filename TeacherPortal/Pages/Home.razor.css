@@ -1,0 +1,181 @@
+.home-container {
+
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+section {
+    width: 100%;
+    margin: 40px 0;
+    padding: 20px;
+    background-color: var(--transparent-secondary); /* Фон секций */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    transition: box-shadow 0.3s ease;
+}
+
+    section:hover {
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4); /* Увеличенная тень при наведении */
+    }
+
+.parallax {
+    background-image: url('imgs/bg.jpg'); /* Параллакс-фон */
+    height: 700px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+    .parallax h2, .parallax p {
+        color: var(--dark-color); /* Фиолетовый акцент для параллакс-секции */
+    }
+
+.glass-card {
+    background: rgba(90, 185, 234, 0.2); /* Полупрозрачный бирюзовый фон для карточек */
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+    max-width: 600px;
+    width: 100%;
+}
+
+h2 {
+    margin-bottom: 10px;
+    color: var(--primary-color); /* Яркий зеленый цвет заголовков */
+}
+
+p {
+    font-size: 1.1em;
+    color: #333;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+section h2 {
+    color: var(--primary-color); /* Яркий зеленый цвет заголовков */
+}
+
+section p, ul, li {
+    color: #555;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.flip-card-front {
+    background: var(--primary-gradient); /* Фон передней стороны карточек */
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+    .flip-card-front .icon {
+        width: 80px;
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+.flip-card-back {
+    background: var(--dark-gradient); /* Фон задней стороны карточек */
+    color: white;
+    transform: rotateY(180deg);
+}
+
+    .flip-card-back p {
+        color: white;
+    }
+
+/* Адаптация карточек для мобильных устройств */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .flip-card {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+/* Кнопки навигации */
+.nav-button {
+    background-color: var(--primary-color) !important; /* Темно-синий фон кнопок */
+    color: white !important;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+    .nav-button:hover {
+        background-color: var(--accent-color) !important; /* Бирюзовый фон при наведении */
+        transform: scale(1.05);
+    }

@@ -1,6 +1,23 @@
+:root {
+    --primary-color: #5680E9;
+    --secondary-color: #84CEEB;
+    --accent-color: #5AB9EA;
+    --light-color: #C1C8E4;
+    --dark-color: #8860D0;
+    /* Градиенты на основе палитры */
+    --primary-gradient: linear-gradient(135deg, #5680E9, #84CEEB);
+    --accent-gradient: linear-gradient(135deg, #5AB9EA, #C1C8E4);
+    --dark-gradient: linear-gradient(135deg, #8860D0, #5680E9);
+    /* Прозрачные оттенки */
+    --transparent-primary: rgba(86, 128, 233, 0.8);
+    --transparent-secondary: rgba(132, 206, 235, 0.2);
+}
+
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
 
 h1:focus {
     outline: none;
@@ -62,7 +79,7 @@ a, .btn-link {
 }
 
     .blazor-error-boundary::after {
-        content: "An error has occurred."
+        content: "Произошла ошибка."
     }
 
 .loading-progress {
@@ -95,9 +112,10 @@ a, .btn-link {
 }
 
     .loading-progress-text:after {
-        content: var(--blazor-load-percentage-text, "Loading");
+        content: var(--blazor-load-percentage-text, "Загрузка...");
     }
 
 code {
     color: #c02d76;
 }
+

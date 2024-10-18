@@ -1,0 +1,34 @@
+@page "/admin-login"
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+@using Radzen
+
+<RadzenCard>
+    <RadzenHeading Text="Admin Login"></RadzenHeading>
+
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <RadzenAlert Severity="AlertSeverity.Error" Style="margin-bottom: 10px;">@errorMessage</RadzenAlert>
+    }
+
+    <RadzenPassword @bind-Value="password" Placeholder="Enter password" Style="width: 100%; margin-bottom: 10px;" />
+    <RadzenButton Text="Login" Icon="login" Click="@HandleLogin" ButtonStyle="ButtonStyle.Primary" />
+</RadzenCard>
+
+@code {
+    private string password;
+    private string errorMessage;
+
+    private async Task HandleLogin()
+    {
+        if (password == "supersecretpassword")
+        {
+            await JS.InvokeVoidAsync("localStorage.setItem", "isAdminAuthenticated", "true");
+            Navigation.NavigateTo("/admin");
+        }
+        else
+        {
+            errorMessage = "Invalid password. Try again.";
+        }
+    }
+}

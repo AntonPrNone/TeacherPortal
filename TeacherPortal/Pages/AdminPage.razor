@@ -1,0 +1,28 @@
+@page "/admin"
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+@using Radzen
+
+
+<RadzenCard>
+    <RadzenHeading Size="H1" Text="Text"></RadzenHeading>
+    <RadzenButton Text="Logout" Icon="exit_to_app" Style="margin-top: 1px;" Click="@Logout" ButtonStyle="Radzen.ButtonStyle.Primary" />
+</RadzenCard>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        var isAuthenticated = await JS.InvokeAsync<string>("localStorage.getItem", "isAdminAuthenticated");
+
+        if (isAuthenticated != "true")
+        {
+            Navigation.NavigateTo("/admin-login");
+        }
+    }
+
+    private async Task Logout()
+    {
+        await JS.InvokeVoidAsync("localStorage.removeItem", "isAdminAuthenticated");
+        Navigation.NavigateTo("/admin-login");
+    }
+}

@@ -1,0 +1,65 @@
+@using Radzen
+@inject IJSRuntime jsRuntime
+
+<RadzenPanel class="fixed-navbar" Style="margin: 20px">
+    <div class="nav-buttons">
+        <button class="nav-button" @onclick='() => Navigate("section1")'>О преподавателе</button>
+        <button class="nav-button" @onclick='() => Navigate("section2")'>Компетенции учителя</button>
+        <button class="nav-button" @onclick='() => Navigate("section3")'>Контакты</button>
+
+    </div>
+</RadzenPanel>
+
+<style>
+    /* Оптимизация: объединение стилей фиксированной панели и "стеклянного" эффекта */
+    .fixed-navbar {
+        top: 0; /* Привязывает к верхней части экрана */
+        left: 0; /* Привязывает к левому краю */
+        right: 0; /* Привязывает к правому краю */
+        width: auto; /* Отмена ширины 100%, чтобы учесть отступы */
+        background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон */
+        backdrop-filter: blur(10px); /* Эффект размытия фона */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Легкая тень для объема */
+        z-index: 1000; /* Поверх всех остальных элементов */
+        border-radius: 15px; /* Скругление углов */
+        padding: 20px; /* Отступы внутри панели */
+        border: 1px solid rgba(255, 255, 255, 0.2); /* Легкая белая граница */
+    }
+
+    /* Стили для кнопок */
+    .nav-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px; /* Промежуток между кнопками */
+    }
+
+    .nav-button {
+        color: white;
+        background-color: var(--primary-color);
+        border: none; /* Убираем границу */
+        border-radius: 5px; /* Скругление углов */
+        padding: 10px 15px; /* Отступы внутри кнопок */
+        font-size: 16px; /* Размер шрифта */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Тень текста */
+        transition: background-color 0.3s, transform 0.2s; /* Плавный переход фона и трансформации */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Легкая тень для объема */
+        cursor: pointer; /* Курсор при наведении */
+    }
+
+        .nav-button:hover {
+            background: linear-gradient(135deg, #c2e9fb 30%, #a0d8f1 70%); /* Градиент при наведении */
+            transform: scale(1.05); /* Увеличение при наведении */
+        }
+
+        .nav-button:last-child {
+            margin-right: 0; /* Убираем отступ у последней кнопки */
+        }
+</style>
+
+@code {
+    private async Task Navigate(string sectionId)
+    {
+        // Используем IJSRuntime для прокрутки к элементу с определенным id
+        await jsRuntime.InvokeVoidAsync("scrollToSection", sectionId);
+    }
+}

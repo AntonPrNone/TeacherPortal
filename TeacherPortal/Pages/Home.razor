@@ -1,35 +1,78 @@
-
-
 @page "/"
+@using Radzen
 
-<PageTitle>Home</PageTitle>
+<TopNavBar/>
+    <div class="home-container">
+        <!-- Section: О преподавателе с параллакс эффектом -->
+    <section id="section1" class="parallax">
+            <div class="glass-card">
+                <h2>О преподавателе</h2>
+                <p>
+                    Меня зовут [Имя Преподавателя], я являюсь учителем начальных классов с более чем [N] лет опыта. Моя цель — помочь ученикам достигнуть своих учебных целей и развить свои таланты.
+                </p>
+            </div>
+        </section>
 
-<h1>Hello, world!!<br><br></h1>
+        <!-- Section: Компетенции учителя -->
+        <section id="section2" class="competence-section">
+            <h2>Компетенции учителя</h2>
+        <RadzenCard Variant="Variant.Flat" class="rz-border-left rz-border-color-info" Style="--rz-border-width: 10px; display: inline-block; margin-left: 0; margin-bottom: 20px;">
+            <strong>Как учитель, я обладаю следующими компетенциями:</strong>
+        </RadzenCard>
 
-Welcome to your new app.
+         <div class="card-container">
+                <!-- Карточка 1 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="icons/worker.png" alt="Icon" class="icon"> <!-- Твоя иконка -->
+                            <h3>Опыт преподавания</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Более [N] лет преподавания в младших классах</p>
+                        </div>
+                    </div>
+                </div>
 
-<RadzenButton Click="@ButtonClicked" Text="Hi1" IsBusy="false" Visible="true" ButtonStyle="Radzen.ButtonStyle.Dark" Style="border: 0px none #ff0000; text-decoration: none" Disabled="false"></RadzenButton>
-<button style="border-radius: 5px; border: 0px outset #000000; background-color: #1a7d28; color: #ffffff; width: 71px; height: 38px">Button</button>
-<RadzenImage Style="width: 317px; height: 288px; color: #007fff; background-color: #000000; float: none; font-size: 20px; font-style: normal; text-transform: none" Path="icon-192.png" Visible="true"></RadzenImage>
-    <RadzenCard Variant="Variant.Outlined">
-        <RadzenIcon Icon="dashboard" IconStyle="IconStyle.Secondary" Style="background-color: #2eff9f; color: #de618b" />
-    </RadzenCard>
+                <!-- Карточка 2 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="icons/preparation.png" alt="Icon" class="icon"> <!-- Твоя иконка -->
+                            <h3>Профессиональная подготовка</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Подготовка к урокам с использованием современных методик</p>
+                        </div>
+                    </div>
+                </div>
 
-<RadzenTabs>
-    <Tabs>
-        <RadzenTabsItem Text="Tab 1"></RadzenTabsItem>
-    </Tabs>
-</RadzenTabs>
-<RadzenSplitButton AlwaysOpenPopup="true" Style="width: 203px; height: 42px"></RadzenSplitButton>
-<RadzenTree Style="width: 113px; height: 36px">
-    <RadzenTreeItem Text="Item 1"></RadzenTreeItem>
-</RadzenTree>
-      <RadzenCard Variant="Variant.Flat" class="rz-background-color-base-200">
-        <RadzenIcon Icon="dashboard" IconStyle="IconStyle.Dark" />
-    </RadzenCard>
-@code {
-    void ButtonClicked()
-    {
-        // Логика при нажатии на кнопку
-    }
-}
+                <!-- Карточка 3 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="icons/interactive.png" alt="Icon" class="icon"> <!-- Твоя иконка -->
+                            <h3>Интерактивные занятия</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Использование интерактивных занятий для лучшего усвоения материала</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Контакты -->
+        <section id="section3">
+            <RadzenCard>
+                <h2>Контакты</h2>
+                <p>
+                    Связаться со мной можно по следующим каналам:
+                </p>
+                <RadzenIcon Icon="email" />
+                <span> Email: teacher@example.com</span> <br />
+                <RadzenIcon Icon="phone" />
+                <span> Телефон: +7 (123) 456-7890</span>
+            </RadzenCard>
+        </section>
+    </div>
